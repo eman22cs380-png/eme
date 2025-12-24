@@ -1,18 +1,19 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const button = document.getElementById("dark-mode-toggle");
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleBtn = document.getElementById("dark-mode-toggle");
 
-  if (!button) {
-    console.log("Button not found");
-    return;
+  if (!toggleBtn) return;
+
+  // Load saved mode
+  if (localStorage.getItem("theme") === "dark") {
+    document.body.classList.add("dark-mode");
+    toggleBtn.textContent = "🌞";
   }
 
-  button.addEventListener("click", function () {
+  toggleBtn.addEventListener("click", () => {
     document.body.classList.toggle("dark-mode");
 
-    if (document.body.classList.contains("dark-mode")) {
-      button.textContent = "🌞";
-    } else {
-      button.textContent = "🌙";
-    }
+    const isDark = document.body.classList.contains("dark-mode");
+    toggleBtn.textContent = isDark ? "🌞" : "🌙";
+    localStorage.setItem("theme", isDark ? "dark" : "light");
   });
 });
