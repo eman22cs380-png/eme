@@ -1,14 +1,15 @@
 :root {
-  /* التعديل: خلفية رمادية داكنة ونصوص بيضاء */
-  --bg: #1f2937;          /* رمادي غامق للخلفية */
-  --card: #374151;        /* رمادي متوسط للبطاقات */
-  --text: #ffffff;        /* نصوص بيضاء */
-  --primary: #3b82f6;     /* أزرق زاهي للأيقونات والمهارات */
+  /* ألوان الوضع النهاري (Light Mode) */
+  --bg: #ffffff;           /* خلفية بيضاء */
+  --card: #3b82f6;         /* البطاقات زرقاء لتناسب الخط الأبيض */
+  --text: #ffffff;         /* خط أبيض كما طلبتِ */
+  --skill-bg: #1e40af;     /* لون أغمق للمهارات للتباين */
   
-  /* ألوان الوضع الداكن (اختياري إذا أردتِ التبديل) */
-  --dark-bg: #111827;
-  --dark-card: #1f2937;
-  --dark-text: #f9fafb;
+  /* ألوان الوضع الليلي (Dark Mode) */
+  --dark-bg: #1f2937;      /* خلفية رمادية */
+  --dark-card: #374151;    /* بطاقات رمادية */
+  --dark-text: #ffffff;    /* خط أبيض */
+  --primary-blue: #3b82f6; /* لون الأيقونات الأزرق */
 }
 
 * {
@@ -21,87 +22,69 @@ body {
   font-family: "Segoe UI", Arial, sans-serif;
   background: var(--bg);
   color: var(--text);
-  transition: background 0.3s, color 0.3s;
-  line-height: 1.6;
+  transition: all 0.3s ease;
 }
 
 /* HEADER */
 .header {
-  background: linear-gradient(135deg, #1e293b, #3b82f6); /* تدرج بين الرمادي والأزرق */
+  background: #1e3a8a; /* أزرق داكن للمحافظة على احترافية التصميم */
   color: white;
   padding: 50px 20px;
   text-align: center;
 }
 
-.name {
-  font-size: 2.5rem;
-  letter-spacing: 1px;
-}
-
-.title {
-  opacity: 0.9;
-  margin-top: 5px;
-  color: #bfdbfe; /* أزرق فاتح جداً للعنوان الوظيفي */
-}
-
-/* CARDS */
+/* CARDS - الوضع النهاري */
 .card {
-  background: var(--card);
+  background: var(--card); /* البطاقة زرقاء */
+  color: var(--text);      /* الخط أبيض */
   padding: 25px;
   margin: 25px 15px;
   border-radius: 14px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  transition: transform 0.3s, box-shadow 0.3s;
-  border: 1px solid rgba(255, 255, 255, 0.05); /* إطار خفيف جداً */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
 }
 
-.card h2 {
-  color: var(--primary); /* عناوين الأقسام باللون الأزرق */
-  margin-bottom: 15px;
-  border-bottom: 2px solid #4b5563;
-  display: inline-block;
-  padding-bottom: 5px;
-}
-
-/* SKILLS (التي طلبتِ فيها الوميض) */
-.skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-}
-
+/* SKILLS & ICONS - تأثير الوميض */
 .skills span {
-  background: var(--primary);
+  background: var(--skill-bg);
   color: white;
   padding: 8px 16px;
   border-radius: 8px;
-  font-size: 14px;
-  font-weight: 500;
-  transition: all 0.3s ease; /* لتنظيم حركة الوميض */
-  cursor: default;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: inline-block;
 }
 
-/* تأثير الوميض عند لمس الأيقونة */
 .skills span:hover {
-  transform: translateY(-3px);
-  background: #60a5fa; /* أزرق أفتح عند اللمس */
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.8); /* الوميض الأزرق */
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6); /* وميض أبيض في النهار */
 }
 
-/* PROJECTS */
-.projects li {
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+/* -----------------------------------------
+   تعديلات الوضع الليلي (عند إضافة class .dark-mode)
+   ----------------------------------------- */
+body.dark-mode {
+  background: var(--dark-bg); /* الخلفية رمادية */
+  color: var(--dark-text);
 }
 
-.projects li:last-child {
-  border-bottom: none;
+body.dark-mode .card {
+  background: var(--dark-card); /* البطاقة رمادية */
+  border: 1px solid rgba(59, 130, 246, 0.3); /* إطار أزرق خفيف */
+}
+
+body.dark-mode .skills span {
+  background: var(--primary-blue); /* الأيقونات زرقاء */
+}
+
+body.dark-mode .skills span:hover {
+  box-shadow: 0 0 15px var(--primary-blue); /* وميض أزرق في الليل */
 }
 
 /* FOOTER */
 .footer {
   text-align: center;
-  padding: 30px;
-  opacity: 0.6;
-  font-size: 0.9rem;
+  padding: 20px;
+  color: #6b7280; /* رمادي ليكون مريحاً للعين */
 }
+body.dark-mode .footer { color: white; }
