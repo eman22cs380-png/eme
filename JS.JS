@@ -1,13 +1,18 @@
-// Dark Mode Toggle Functionality
-const darkModeButton = document.getElementById("dark-mode-toggle");
+document.addEventListener("DOMContentLoaded", function () {
+  const button = document.getElementById("dark-mode-toggle");
 
-darkModeButton.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  
-  // Toggle button icon
-  if (document.body.classList.contains("dark-mode")) {
-    darkModeButton.textContent = "🌞";
-  } else {
-    darkModeButton.textContent = "🌙";
+  if (!button) {
+    console.log("Button not found");
+    return;
   }
+
+  button.addEventListener("click", function () {
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+      button.textContent = "🌞";
+    } else {
+      button.textContent = "🌙";
+    }
+  });
 });

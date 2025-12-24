@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: Arial, sans-serif;
   background-color: #f0f4f8;
   color: #333;
   transition: background-color 0.3s, color 0.3s;
@@ -14,86 +14,50 @@ body {
 header {
   background-color: #333;
   color: white;
-  padding: 20px 0;
+  padding: 20px;
 }
 
-header .container {
+.container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
-  margin: 0 auto;
 }
 
-header h1 {
-  font-size: 2.5rem;
-}
-
-header button {
+button {
   background: none;
   border: 2px solid white;
   color: white;
+  font-size: 18px;
   padding: 5px 10px;
-  font-size: 1.2rem;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-}
-
-header button:hover {
-  background-color: white;
-  color: #333;
 }
 
 section {
-  margin: 50px 0;
+  background: white;
+  margin: 20px;
   padding: 20px;
-  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-section h2 {
-  font-size: 2rem;
-  margin-bottom: 15px;
-  color: #333;
-}
-
-ul {
-  list-style-type: none;
-}
-
-ul li {
-  font-size: 1.1rem;
-  margin: 8px 0;
-}
-
-ul li a {
-  text-decoration: none;
-  color: #007bff;
-  font-weight: bold;
-}
-
-ul li a:hover {
-  text-decoration: underline;
 }
 
 footer {
   background-color: #333;
   color: white;
   text-align: center;
-  padding: 20px;
+  padding: 15px;
 }
 
-footer p {
-  font-size: 1rem;
+/* DARK MODE */
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
 }
 
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8rem;
-  }
+body.dark-mode header,
+body.dark-mode footer {
+  background-color: #1e1e1e;
+}
 
-  section {
-    padding: 15px;
-  }
+body.dark-mode section {
+  background-color: #222;
+  color: #ffffff;
 }
