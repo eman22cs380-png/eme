@@ -1,19 +1,16 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const toggleBtn = document.getElementById("dark-mode-toggle");
+// تحديد الزر وجسم الصفحة
+const toggleBtn = document.getElementById('dark-mode-toggle');
+const body = document.body;
 
-  if (!toggleBtn) return;
+// وظيفة التبديل
+toggleBtn.addEventListener('click', () => {
+    // تبديل الكلاس dark-mode في الـ body
+    body.classList.toggle('dark-mode');
 
-  // Load saved mode
-  if (localStorage.getItem("theme") === "dark") {
-    document.body.classList.add("dark-mode");
-    toggleBtn.textContent = "🌞";
-  }
-
-  toggleBtn.addEventListener("click", () => {
-    document.body.classList.toggle("dark-mode");
-
-    const isDark = document.body.classList.contains("dark-mode");
-    toggleBtn.textContent = isDark ? "🌞" : "🌙";
-    localStorage.setItem("theme", isDark ? "dark" : "light");
-  });
+    // تغيير الأيقونة بناءً على الوضع الحالي
+    if (body.classList.contains('dark-mode')) {
+        toggleBtn.textContent = '☀️'; // شمس للوضع النهاري
+    } else {
+        toggleBtn.textContent = '🌙'; // قمر للوضع الليلي
+    }
 });
